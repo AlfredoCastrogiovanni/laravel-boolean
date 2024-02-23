@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cocktail extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'img_url',
-        'category_id'
+        'title',
     ];
 
-    public function category()
+    public function cocktails()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Cocktail::class);
     }
 }

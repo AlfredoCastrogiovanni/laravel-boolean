@@ -13,7 +13,7 @@ class CocktailController extends Controller
      */
     public function index()
     {
-        $cocktails = Cocktail::all();
+        $cocktails = Cocktail::with('categories')->get();
         return response()->json(
             [
                 'success' => true,
